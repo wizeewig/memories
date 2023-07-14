@@ -47,7 +47,7 @@ a{
     box-shadow: 0 10px 20px -10px rgba(219, 24, 44, 0.6);
 }
 
-@media screen and (max-width:100px){
+@media screen and (max-width:800px){
     #instaLogo{
         display: none;
     }
