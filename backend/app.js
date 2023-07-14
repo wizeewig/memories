@@ -17,7 +17,11 @@ const mongoose = require('mongoose');
 const {mongoUrl} = require('./keys')
 const path = require('path')
 
-app.use(cors())
+app.use(cors(
+    {
+        origin: ['https://memories-7fhn.onrender.com']
+    }
+))
 app.use(express.json())
 require('./models/model')
 require('./models/post')
