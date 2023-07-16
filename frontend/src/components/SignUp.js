@@ -59,7 +59,7 @@ export default function SignUp() {
         <div className='form-container'>
 
             <div className='form'>
-            <img className='signUpLogo' src={logo1} alt='logo'></img>
+            {/* <img className='signUpLogo' src={logo1} alt='logo'></img> */}
             <p className="loginPara">Sign Up to see photos and videos <br/>from your friends </p>
             <div>
                 <input type="email" name="email" id="email" placeholder='Email' value={email} onChange={(e)=>{setemail(e.target.value)}}></input>
