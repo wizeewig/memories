@@ -48,7 +48,7 @@ a{
 }
 
 @media screen and (max-width:800px){
-    #instaLogo{
+    #memorieslogo{
         display: none;
     }
     .nav-menu{

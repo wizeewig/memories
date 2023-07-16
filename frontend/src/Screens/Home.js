@@ -11,6 +11,8 @@ export default function Home() {
   const [comment, setComment] = useState("");
   const [show, setShow] = useState(false);
   const [item, setItem] = useState([]);
+  let limit = 10;
+  let skip = 0;
 
    // Toast functions
    const notifyA = (msg) => toast.error(msg);
@@ -21,16 +23,32 @@ export default function Home() {
   if(!token){
     navigate("./signup")
   }
+  fetchPosts()
 
-  fetch("/allposts",{
-    headers:{
-      "Authorization": "Bearer " + localStorage.getItem("jwt")
-    },
-  }).then(res=>res.json())
-  .then(result => setData(result))
-  .catch(err => console.log(err))
- 
+  window.addEventListener("scroll",handleScroll)
+  return ()=>{
+    window.removeEventListener("scroll",handleScroll)
+  }
+
   }, [])
+
+  //fetching all posts
+  const fetchPosts = ()=>{
+    fetch(`/allposts?limit=${limit}&skip=${skip}`,{
+      headers:{
+        "Authorization": "Bearer " + localStorage.getItem("jwt")
+      },
+    }).then(res=>res.json())
+    .then(result => setData((data)=>[...data, ...result]))
+    .catch(err => console.log(err))
+  }
+
+  const handleScroll = ()=>{
+    if(document.documentElement.clientHeight + window.pageYOffset >= document.documentElement.scrollHeight){
+      skip = skip + 10;
+      fetchPosts()
+    }
+  }
   
   const likePost = (id)=>[
     fetch("/like", {

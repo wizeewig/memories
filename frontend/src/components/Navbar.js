@@ -60,7 +60,7 @@ export default function Navbar({login}) {
 
   return (
     <div className='navbar'>
-        <img id="instaLogo" src={logo1} alt="logo" onClick={()=>{navigate("/")}} ></img>
+        <img id="memorieslogo" src={logo1} alt="logo" onClick={()=>{navigate("/")}} ></img>
         <ul className='nav-menu'>
            {loginstatus()}
         </ul>
