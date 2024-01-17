@@ -64,7 +64,7 @@ const notifyB = (msg)=> toast.success(msg)
     if (url) {
       postPic();
     }
-  }, [url]);
+  }, []);
 
   return (
     <div className="profilePic darkBg">

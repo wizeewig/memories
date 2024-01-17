@@ -55,7 +55,7 @@ router.put("/like",requireLogin,(req,res)=>{
             return res.status(422).json({error:err})
         }
         else{
-            res.json(result)
+            res.json(result) 
         }
     })
 })

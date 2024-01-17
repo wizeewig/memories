@@ -23,11 +23,18 @@ export default function SignUp() {
     const postData=()=> {
 
      //checking email
+     const index = email.indexOf("@");
+     const substring = email.substring(index + 1);
+     console.log(substring)
     if (!emailRegex.test(email)) {
         notifyA("Invalid email")
         return
       } else if (!passRegex.test(password)) {
         notifyA("Password must contain at least 8 characters, including at least 1 number and 1 includes both lower and uppercase letters and special characters for example #,?,!")
+        return
+      }
+      else if(substring!=("mmmut.ac.in")){
+        notifyA("Please use college Email Id")
         return
       }
 
