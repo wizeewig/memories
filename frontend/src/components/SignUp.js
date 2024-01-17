@@ -25,7 +25,7 @@ export default function SignUp() {
      //checking email
      const index = email.indexOf("@");
      const substring = email.substring(index + 1);
-     console.log(substring)
+     //console.log(substring)
     if (!emailRegex.test(email)) {
         notifyA("Invalid email")
         return
